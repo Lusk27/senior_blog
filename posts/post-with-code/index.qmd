@@ -1,0 +1,74 @@
+---
+title: "Overview of Project"
+author: "Trey Lusk"
+date: "2023-01-12"
+categories: [RBDC, Webscraping]
+image: "image.jpg"
+---
+
+## RBDC Ag Econ Dashboard
+
+My Senior project is to create a tool that helps farmers know when the best time is to sell their crops and where they should sell them. Ideally this would be something that updates automatically, can be accessed remotely, and is simple to use.
+
+### "A goal without a plan is just a wish" 
+
+-Antoine de Saint-Exupéry.
+
+As I understand the task now here is how i hope to achieve it, from the week and a half that I have been working here things have already been altered slightly but what I have to do I feel is achievable.
+
+#### Storage
+
+#####  Problem
+
+Right now the data that we have comes to us in forms of PDFs and is transferred by hand into a PowerBI file. For a few reasons we don't want to do this going forward, chief of these are because we no longer want to use PowerBI as our deliverable.
+
+##### Solution 
+
+I need to write a code that reads all the tables from PDFs into a pandas dataframe so we can store it in future steps and so we can have historic data with new data. Here is some dummy code that i've been using to do that
+
+```{'''}
+import os
+from tabula import read_pdf
+import pandas as pd
+
+path = "/Users/luskenterprises/consulting/agecon_slade_fa22/personal_folders/trey_lusk/pdf_folder" 
+
+df_list = []
+for file in os.listdir(path):
+    if file.endswith(".pdf"):
+        df = read_pdf(os.path.join(path, file), pages='all')
+        df_list.append(df)
+
+df_final = pd.concat(df_list)
+'''
+```
+
+#### Dashboard 
+
+##### Problem 
+
+PowerBI Dashboard are great for presentations and internal uses, but after discussing it with the team for this use case we find the PowerBI documents to be too clunky and we want to look for other methods of Dashboarding where we can be more flexible in how we publish it.
+
+##### Solution 
+
+We want to transfer the information that we already have frame worked into a streamlit application. This will make it a bit more simple for us so we can have everything were working with together in VS Code and it will make it more simple to move it all to the cloud when we publish it.
+
+#### Long Term Deployment and Maintenance 
+
+##### Problem 
+
+With our goal of having this app help farmers we need it to be able to run indefinitely and be viable for external uses. Lets say a farmer in St. Anthony wants to share it to his friend in Twin Falls. We need it to be published in short, not only that but we would like the script that webscrapes and wrangles the data to be stored somewhere that's not my computer and we want to run it automatically every week to catch new farming reports
+
+##### Solution 
+
+I know less about this then I would like to but generally i understand that a solution to my problems is deploying it in a container and storing the data in the cloud. From what I understand the we should build a docker container and then use AWS ECS to help us with scaling and then store the data in S3. But more research is needed. This will be our final step for the wheat data.
+
+#### Rinse and Repeat 
+
+##### Task 
+
+After we finish up with wheat data there is talk of us doing something similar with other types of Agricultural products such as dairy and sheep
+
+##### Solution 
+
+Once we have the first app fleshed out then adding more visuals and different data is just a matter of changing a few links in the code. I hope to have at least one more of these set up by the time we finish the project

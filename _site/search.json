@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "senior_blog",
+    "section": "",
+    "text": "Overview of Project\n\n\n\n\n\n\n\nRBDC\n\n\nWebscraping\n\n\n\n\n\n\n\n\n\n\n\nJan 12, 2023\n\n\nTrey Lusk\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 9, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Overview of Project",
+    "section": "",
+    "text": "My Senior project is to create a tool that helps farmers know when the best time is to sell their crops and where they should sell them. Ideally this would be something that updates automatically, can be accessed remotely, and is simple to use.\n\n\n-Antoine de Saint-Exupéry.\nAs I understand the task now here is how i hope to achieve it, from the week and a half that I have been working here things have already been altered slightly but what I have to do I feel is achievable.\n\n\n\n\nRight now the data that we have comes to us in forms of PDFs and is transferred by hand into a PowerBI file. For a few reasons we don’t want to do this going forward, chief of these are because we no longer want to use PowerBI as our deliverable.\n\n\n\nI need to write a code that reads all the tables from PDFs into a pandas dataframe so we can store it in future steps and so we can have historic data with new data. Here is some dummy code that i’ve been using to do that\nimport os\nfrom tabula import read_pdf\nimport pandas as pd\n\npath = \"/Users/luskenterprises/consulting/agecon_slade_fa22/personal_folders/trey_lusk/pdf_folder\" \n\ndf_list = []\nfor file in os.listdir(path):\n    if file.endswith(\".pdf\"):\n        df = read_pdf(os.path.join(path, file), pages='all')\n        df_list.append(df)\n\ndf_final = pd.concat(df_list)\n'''\n\n\n\n\n\n\nPowerBI Dashboard are great for presentations and internal uses, but after discussing it with the team for this use case we find the PowerBI documents to be too clunky and we want to look for other methods of Dashboarding where we can be more flexible in how we publish it.\n\n\n\nWe want to transfer the information that we already have frame worked into a streamlit application. This will make it a bit more simple for us so we can have everything were working with together in VS Code and it will make it more simple to move it all to the cloud when we publish it.\n\n\n\n\n\n\nWith our goal of having this app help farmers we need it to be able to run indefinitely and be viable for external uses. Lets say a farmer in St. Anthony wants to share it to his friend in Twin Falls. We need it to be published in short, not only that but we would like the script that webscrapes and wrangles the data to be stored somewhere that’s not my computer and we want to run it automatically every week to catch new farming reports\n\n\n\nI know less about this then I would like to but generally i understand that a solution to my problems is deploying it in a container and storing the data in the cloud. From what I understand the we should build a docker container and then use AWS ECS to help us with scaling and then store the data in S3. But more research is needed. This will be our final step for the wheat data.\n\n\n\n\n\n\nAfter we finish up with wheat data there is talk of us doing something similar with other types of Agricultural products such as dairy and sheep\n\n\n\nOnce we have the first app fleshed out then adding more visuals and different data is just a matter of changing a few links in the code. I hope to have at least one more of these set up by the time we finish the project"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  }
+]

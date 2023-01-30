@@ -1,0 +1,14 @@
+{
+  "hash": "11e7062afb16c09328b9b856af85c3f0",
+  "result": {
+    "markdown": "---\ntitle: \"Overview of Project\"\nauthor: \"Trey Lusk\"\ndate: \"2023-01-12\"\ncategories: [RBDC, Webscraping]\nimage: \"image.jpg\"\n---\n\n\n## RBDC Ag Econ Dashboard\n\nMy Senior project is to create a tool that helps farmers know when the best time is to sell their crops and where they should sell them. Ideally this would be something that updates automatically, can be accessed remotely, and is simple to use.\n\n### \"A goal without a plan is just a wish\" \n\n-Antoine de Saint-Exupéry.\n\nAs I understand the task now here is how i hope to achieve it, from the week and a half that I have been working here things have already been altered slightly but what I have to do I feel is achievable.\n\n#### Storage\n\n#####  Problem\n\nRight now the data that we have comes to us in forms of PDFs and is transferred by hand into a PowerBI file. For a few reasons we don't want to do this going forward, chief of these are because we no longer want to use PowerBI as our deliverable.\n\n##### Solution \n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
